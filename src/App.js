@@ -2,6 +2,7 @@ import './App.css';
 import NavbarComp from './components/NavbarComp';
 import FooterComp from "./components/FooterComp";
 import ContentComp from "./components/ContentComp";
+import SearchComp from "./components/SearchComp";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -10,16 +11,16 @@ import axios from "axios";
 
 const App = () => {
 
-  const [WeatherState, setWeatherState] = useState();
-      
+  const [ WeatherState, setWeatherState ] = useState();
+  const [ CityState, setCityState ]   = useState("الصين") 
 
   
       const getWeatherApi = async() =>{
 
-                const city_name = "Dubai";
+                // const city_name = "Dubai";
                 const API_key = "16b78ba3c254147335cdbdff4dc15fe8";
 
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric&lang=ar`)
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CityState}&appid=${API_key}&units=metric&lang=ar`)
                     
                     
                 console.log( response.data)      
@@ -34,11 +35,13 @@ const App = () => {
                       pressure : response.data.main.pressure,
                       wind :  response.data.wind.speed,
                       visibility : response.data.visibility,
+                      sunrise : response.data.sys.sunrise,
+                      sunset : response.data.sys.sunset,
                       error: false,
                       toast_message: '' 
                 })
 
-      console.log(WeatherState) 
+
       }
 
 
@@ -55,9 +58,10 @@ const App = () => {
 
         
       return (
-              <div className="">
+              <div>
               
                 <NavbarComp/>
+                <SearchComp/>
                 <ContentComp  WeatherState={WeatherState} />
                 <FooterComp/>
               

@@ -1,0 +1,32 @@
+body{
+    background-color: #9e9e88!important;
+}
+
+.card_back{
+    margin-top: 100px;
+    /* margin-left:80px;
+    margin-right: 80px; */
+    align-content: center;
+    padding: 100px;
+    border-radius: 50px;
+    border-bottom: 1px solid #8b898971 ;
+    border-left: 1px solid #8b898971 ;
+    width:400px;
+    height:400px;
+    background-color: #fffb07;
+
+
+}
+
+
+.myfont{
+    font-family: 'Noto Kufi Arabic', sans-serif !important;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.cityfont{
+    font-family: 'Noto Kufi Arabic', sans-serif !important;
+    font-size: 50px;
+    font-weight: 400;
+}

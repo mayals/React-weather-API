@@ -2,11 +2,11 @@ import {Container,Navbar } from 'react-bootstrap';
 
 const FooterComp = () =>{
                         return (
-                            <Navbar bg="primary" variant="dark" className="fixed-bottom">
+                            <Navbar bg="dark" variant="light" className="fixed-bottom">
                                 <Container>
                            
                                     <div className="container-fluid">
-                                        {/* <a className="navbar-brand" href="#">Fixed bottom</a> */}
+                                        developed by @mayals
                                     </div>
 
                                 </Container>

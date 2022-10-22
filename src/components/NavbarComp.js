@@ -3,14 +3,10 @@ import {Container,Nav,Navbar } from 'react-bootstrap';
 
 const NavbarComp = () =>{
                         return (
-                            <Navbar bg="primary" variant="dark">
+                            <Navbar bg="dark" variant="dark" >
                                     <Container>
-                                        <Navbar.Brand href="#home">Weather</Navbar.Brand>
-                                        <Nav className="me-auto">
-                                            <Nav.Link href="#home">Home</Nav.Link>
-                                            <Nav.Link href="#features">Features</Nav.Link>
-                                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                                        </Nav>
+                                        <Navbar.Brand href="#home" >مدينة و طقس</Navbar.Brand>
+                                        
                                     </Container>
                             </Navbar>
                         );
