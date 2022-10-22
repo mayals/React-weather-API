@@ -5,7 +5,7 @@ const FooterComp = () =>{
                             <Navbar bg="dark" variant="light" className="fixed-bottom">
                                 <Container>
                            
-                                    <div className="container-fluid">
+                                    <div className="container-fluid text-light text-muted">
                                         developed by @mayals
                                     </div>
 

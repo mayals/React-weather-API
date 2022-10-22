@@ -23,7 +23,7 @@ const App = () => {
                 const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CityState}&appid=${API_key}&units=metric&lang=ar`)
                     
                     
-                console.log( response.data)      
+                // console.log( response.data)      
                 // https://linguinecode.com/post/why-react-setstate-usestate-does-not-update-immediately
                     
                 setWeatherState( {
