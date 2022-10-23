@@ -6,16 +6,21 @@ import SearchComp from "./components/SearchComp";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 
 
 const App = () => {
 
-  const [ WeatherState, setWeatherState ] = useState();
-  const [ CityState, setCityState ]   = useState("الصين") 
+    const [ WeatherState, setWeatherState ] = useState();
+    const [ CityState, setCityState ]   = useState() 
 
   
-      const getWeatherApi = async() =>{
+    const getWeatherApi = async(inputCity) =>{
+
+          if ( inputCity !== "" ){
+
+                setCityState(inputCity)
 
                 // const city_name = "Dubai";
                 const API_key = "16b78ba3c254147335cdbdff4dc15fe8";
@@ -42,7 +47,10 @@ const App = () => {
                 })
 
 
-      }
+          
+          }
+    
+    }
 
 
 
@@ -51,20 +59,32 @@ const App = () => {
 
            getWeatherApi();
            console.log(WeatherState);   
-       }, []);
-
-        
+      }, []);
 
 
-        
+
+      useEffect(() => {
+
+          getWeatherApi();
+          console.log(CityState);   
+      }, CityState);
+
+      
+
+
       return (
               <div>
-              
-                <NavbarComp/>
-                <SearchComp/>
-                <ContentComp  WeatherState={WeatherState} />
-                <FooterComp/>
-              
+              <NavbarComp />
+                  <BrowserRouter>
+                  <Routes> 
+
+                      <Route path="/"             element={ <SearchComp  setCityState={setCityState}  getWeatherApi={getWeatherApi}   /> }  /> 
+                      <Route path="/city-weather" element={ <ContentComp  WeatherState={WeatherState}    /> }  />
+                    
+                  </Routes>
+                  </BrowserRouter>
+
+              <FooterComp/>
               </div> 
       );
 
@@ -72,5 +92,4 @@ const App = () => {
 
 
 }
-
 export default App;
